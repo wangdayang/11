@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background-color:#3484b7;margin:0;font:16px arial;
+			}
+			#list{
+				margin:200px auto;
+				height:552px;
+				width:552px;
+				list-style:none;
+				padding:0;
+			}
+			#list li{
+				width:86px;
+				height:86px;
+				float:left;
+				background-color:#fff;
+				overflow:hidden;
+				margin:3px;
+				/*background-repeat:no-repeat;*/
+				box-sizing:border-box;
+			}
+			#list li p{
+				height:24px;
+				background:#fff;
+				line-height:24px;
+				text-align:center;
+				color:red;
+				margin:0;
+				padding:0;
+			}
+			#box{
+				/*width:100px;
+				height:50px;*/
+				padding:15px;
+				position:absolute;
+				top:262px;
+				border-radius:50%;
+				left:900px;
+				background-color:#FFA500;
+				color:#fff;
+				font:20px/50px arial;
+				text-align:center;
+				display:none;
+			}
+			#box span{
+				width:10px;
+				height:10px;
+				background-color:#FFA500;
+				position:absolute;
+				border-radius: 50%;
+				
+			}
+			#box span:nth-of-type(1){
+				top:100px;
+				left:30px
+			}
+			#box span:nth-of-type(2){
+				top:114px;
+				left:14px;
+			}
+			#box span:nth-of-type(3){
+				top:130px;
+				left:-5px
+			}
+			#box1{
+				/*width:100px;
+				height:50px;*/
+				padding:15px;
+				position:absolute;
+				top:90px;
+				border-radius:50%;
+				left:1190px;
+				background-color:#FFA500;
+				color:#fff;
+				font:20px/50px arial;
+				text-align:center;
+				display:none;
+			}
+			#box1 span{
+				width:10px;
+				height:10px;
+				background-color:#FFA500;
+				position:absolute;
+				border-radius: 50%;
+				
+			}
+			#box1 span:nth-of-type(1){
+				top:60px;
+				left:30px
+			}
+			#box1 span:nth-of-type(2){
+				top:80px;
+				left:10px;
+			}
+			#box1 span:nth-of-type(3){
+				top:100px;
+				left:-10px
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div id="box">
+			<span></span>
+			<span></span>
+			<span></span>
+			and,click on me...
+		</div>
+		<div id="box1">
+			<span></span>
+			<span></span>
+			<span></span>
+			it's you...
+		</div>
+		<script>
+			var arr=['img/comp_bogdan.jpg','img/comp_bogdan_sala.jpg','img/comp_danic.jpg','img/comp_boti.jpg','img/comp_calin.jpg','img/comp_you.jpg','img/comp_ciprian_herman.jpg'
+			,'img/comp_cristi.jpg','img/comp_cristib.jpg','img/comp_cristic.jpg','img/comp_cristina.jpg','img/comp_cristiz.jpg','img/comp_csabat.jpg','img/comp_dani.jpg'
+			,'img/comp_bogus.jpg','img/comp_daria.jpg','img/comp_dragos.jpg','img/comp_erika.jpg','img/comp_filip.jpg','img/comp_gabi.jpg','img/comp_ildi.jpg','img/comp_istvan.jpg'
+			,'img/comp_jozsi.jpg','img/comp_lavinia.jpg','img/comp_levente.jpg','img/comp_liviu.jpg','img/comp_marc.jpg','img/comp_max.jpg','img/comp_mihai.jpg','img/comp_mihaip.jpg'
+			,'img/comp_mircea.jpg','img/comp_mircea-d.jpg','img/comp_oana.jpg','img/comp_paul.jpg','img/comp_radu.jpg','img/comp_radup.jpg']
+			var list=document.getElementById('list');
+			var imgs=document.getElementsByTagName('img')[0];
+			var lis=list.getElementsByTagName('li');
+			var box=document.getElementById('box');
+			var box1=document.getElementById('box1');
+			for(var i=0;i<lis.length;i++){
+				lis[i].style.left=lis[i].offsetLeft+'px';
+				lis[i].style.top=lis[i].offsetTop+'px';
+				lis[i].style.backgroundImage='url('+arr[i]+')';
+				lis[i].style.backgroundPosition='-86px 0px'
+			}
+			for(var i=0;i<lis.length;i++){
+				lis[i].style.position='absolute';
+				lis[i].style.float='none';
+				lis[i].style.margin='0px';
+			}
+			document.onmousemove=function(e){
+				var X=e.clientX;
+				var Y=e.clientY;
+				
+				for(var i=0;i<lis.length;i++){
+					if(X<lis[i].getBoundingClientRect().left){
+						if(Y<lis[i].getBoundingClientRect().top){
+							lis[i].style.backgroundPosition='-516px 0';
+						}else if(Y>lis[i].getBoundingClientRect().top&&Y<lis[i].getBoundingClientRect().height+lis[i].getBoundingClientRect().top){
+							lis[i].style.backgroundPosition='-860px 0';
+						}else if(Y>lis[i].getBoundingClientRect().bottom){
+							lis[i].style.backgroundPosition='-774px 0';
+						}
+					}
+					if(X>lis[i].getBoundingClientRect().right){
+						if(Y<lis[i].getBoundingClientRect().top){
+							lis[i].style.backgroundPosition='-344px 0';
+						}else if(Y>lis[i].getBoundingClientRect().top&&Y<lis[i].getBoundingClientRect().height+lis[i].getBoundingClientRect().top){
+							lis[i].style.backgroundPosition='-258px 0';
+						}else if(Y>lis[i].getBoundingClientRect().bottom){
+							lis[i].style.backgroundPosition='-602px 0';
+						}
+					}
+					if(X>lis[i].getBoundingClientRect().left&&X<lis[i].getBoundingClientRect().right){
+						if(Y<lis[i].getBoundingClientRect().top){
+							lis[i].style.backgroundPosition='-430px 0';
+						}else if(Y>lis[i].getBoundingClientRect().top&&Y<lis[i].getBoundingClientRect().height+lis[i].getBoundingClientRect().top){
+							lis[i].style.backgroundPosition='-86px 0';
+						}else if(Y>lis[i].getBoundingClientRect().bottom){
+							lis[i].style.backgroundPosition='-688px 0';
+						}
+					}
+				}
+			}
+			setTimeout(function(){
+				box.style.display='block';
+			},11000)
+			lis[14].onclick=function(){
+				window.open("donghua.html","_blank","width=500px,height=500px");
+			}
+			setTimeout(function(){
+				box1.style.display='block';
+			},8000)
+		</script>
+	</body>
+</html>
